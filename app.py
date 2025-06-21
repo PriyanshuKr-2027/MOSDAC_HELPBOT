@@ -6,6 +6,8 @@ import faiss
 import requests
 
 app = Flask(__name__)
+import os
+HF_API_KEY = os.getenv("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")
 
 # === Load CSV and Embed FAQ Corpus ===
 df = pd.read_csv("Model-train.csv")
@@ -20,7 +22,7 @@ faiss_index.add(np.array(embeddings))
 
 # === Hugging Face Inference API Setup ===
 API_URL = "https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-beta"
-HF_API_KEY = "HF_API_KEY"  # Replace with your actual token
+HF_API_KEY = "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"  # Replace with your actual token
 headers = {"Authorization": f"Bearer {HF_API_KEY}"}
 
 # === Chat Memory ===
