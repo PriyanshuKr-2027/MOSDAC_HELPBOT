@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: mosdac-helpbot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: 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
+        value: your_huggingface_key
